@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Геометрические построения</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="section-page">
+
+    <div class="reading-progress"><div class="reading-progress-bar" id="progressBar"></div></div>
+
+    <div class="home-decor" aria-hidden="true">
+        <svg class="decor decor-1" viewBox="0 0 300 300">
+            <circle cx="150" cy="150" r="140" fill="none" stroke="#5ba3e8" stroke-width="1.5"/>
+            <circle cx="150" cy="150" r="100" fill="none" stroke="#5ba3e8" stroke-width="1"/>
+            <circle cx="150" cy="150" r="60" fill="none" stroke="#5ba3e8" stroke-width="1"/>
+            <line x1="10" y1="150" x2="290" y2="150" stroke="#5ba3e8" stroke-width="1" stroke-dasharray="8 4"/>
+            <line x1="150" y1="10" x2="150" y2="290" stroke="#5ba3e8" stroke-width="1" stroke-dasharray="8 4"/>
+            <circle cx="150" cy="150" r="3" fill="#5ba3e8"/>
+        </svg>
+        <svg class="decor decor-2" viewBox="0 0 240 240">
+            <line x1="20" y1="20" x2="220" y2="20" stroke="#5ba3e8" stroke-width="1.5"/>
+            <line x1="20" y1="20" x2="20" y2="220" stroke="#5ba3e8" stroke-width="1.5"/>
+            <line x1="20" y1="20" x2="220" y2="220" stroke="#5ba3e8" stroke-width="1" stroke-dasharray="6 4"/>
+            <path d="M 70 20 A 50 50 0 0 0 20 70" fill="none" stroke="#5ba3e8" stroke-width="1.5"/>
+            <text x="55" y="55" fill="#5ba3e8" font-size="14" font-family="JetBrains Mono, monospace">90°</text>
+        </svg>
+        <svg class="decor decor-3" viewBox="0 0 300 260">
+            <path d="M40 40 L120 20 L200 40 L260 80 L240 200 L120 240 L40 200 Z" fill="none" stroke="#5ba3e8" stroke-width="1.5"/>
+            <path d="M40 40 L120 80 L200 40 M120 80 L120 240" fill="none" stroke="#5ba3e8" stroke-width="1"/>
+            <path d="M200 40 L260 80" stroke="#5ba3e8" stroke-width="1"/>
+        </svg>
+    </div>
+
+    <header class="site-header hero-header">
+        <div class="hero-content">
+            <p class="hero-overline">Раздел 02 · Построения</p>
+            <h1>Геометрические<br>построения</h1>
+            <p class="hero-sub">Деление отрезков и углов, деление окружности, сопряжения, алгоритм построения чертежа плоской детали.</p>
+            <div class="hero-meta">
+                <span>3 темы</span>
+                <span class="dot">·</span>
+                <span>теория</span>
+                <span class="dot">·</span>
+                <span>практикум</span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs">
+        <a href="index.html">Главная</a>
+        <span class="breadcrumbs-sep">/</span>
+        <span class="breadcrumbs-current">Геометрические построения</span>
+    </nav>
+
+    <div class="page-layout">
+
+        <aside class="sidebar">
+            <h3 class="sidebar-title">Содержание</h3>
+            <nav class="sidebar-nav">
+                <a href="#p1" class="sidebar-link"><span class="sidebar-num">1</span><span class="sidebar-text">Деление на равные части</span></a>
+                <a href="#p2" class="sidebar-link"><span class="sidebar-num">2</span><span class="sidebar-text">Сопряжения</span></a>
+                <a href="#p3" class="sidebar-link"><span class="sidebar-num">3</span><span class="sidebar-text">Чертёж плоской детали</span></a>
+            </nav>
+        </aside>
+
+        <main class="content">
+
+            <p class="lead center">
+                <strong>Суть раздела:</strong> научиться выполнять базовые геометрические построения — деление отрезков, углов и окружностей, сопряжения, чертежи плоских деталей.
+            </p>
+
+            <h3 id="p1">1. Деление отрезка, угла и окружности на равные части</h3>
+
+            <h4>Деление отрезка на две равные части</h4>
+            <p>Чтобы разделить отрезок <strong>AB</strong> пополам (на две равные части), из концов отрезка проводят дуги радиусом больше половины этого отрезка (R &gt; ½ AB). Точки пересечения дуг соединяют прямой линией, которая делит отрезок AB пополам и является перпендикуляром к нему. (CD ⊥ AB; ∠COB = 90°.)</p>
+
+            <figure>
+                <img src="images/delenie-otrezka.png" alt="Деление отрезка на две равные части">
+                <figcaption>Рис. 1. Деление отрезка пополам</figcaption>
+            </figure>
+
+            <h4>Деление угла на две равные части</h4>
+            <p>Из вершины заданного угла (<strong>C</strong>) проводят дугу произвольным радиусом. Из точек пересечения дуги со сторонами угла (AC, BC) проводят две пересекающиеся дуги одного произвольного радиуса, большего ½ AB. Точку их пересечения (<strong>D</strong>) соединяют с вершиной угла (C).</p>
+
+            <figure>
+                <img src="images/delenie-ugla.png" alt="Деление угла на две равные части">
+                <figcaption>Рис. 2. Деление угла пополам</figcaption>
+            </figure>
+
+            <h4>Деление отрезка на n равных частей (Теорема Фалеса)</h4>
+            <p>Последовательность построения:</p>
+            <ol>
+                <li>проводим луч AC под произвольным углом к AB;</li>
+                <li>откладываем на луче AC заданное количество (n) равных произвольных отрезков;</li>
+                <li>соединяем последнюю точку (n) с точкой B;</li>
+                <li>из каждой точки (1, 2, 3, …) проводим прямые, параллельные отрезку Bn.</li>
+            </ol>
+
+            <figure>
+                <img src="images/teorema-falesa.png" alt="Деление отрезка по теореме Фалеса">
+                <figcaption>Рис. 3. Деление отрезка на n равных частей</figcaption>
+            </figure>
+
+            <h4>Деление окружности на равные части</h4>
+            <p>Любая прямая, проведённая через центр окружности, делит эту окружность на <strong>две равные части</strong>.</p>
+            <p>Две взаимно перпендикулярные прямые, проведённые через центр окружности, делят эту окружность на <strong>четыре равные части</strong>.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Количество частей</th>
+                            <th>Что делаем</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Четыре</strong></td><td>Две взаимно перпендикулярные прямые через центр</td></tr>
+                        <tr><td><strong>Восемь</strong></td><td>Делим каждую четверть пополам</td></tr>
+                        <tr><td><strong>Три</strong></td><td>Из точки пересечения с окружностью откладываем радиус</td></tr>
+                        <tr><td><strong>Шесть</strong></td><td>Радиусом, равным половине диаметра</td></tr>
+                        <tr><td><strong>Пять</strong></td><td>Строим вспомогательные дуги и делим радиус пополам</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <figure>
+                <img src="images/delenie-okruzhnosti.png" alt="Деление окружности на равные части">
+                <figcaption>Рис. 4. Деление окружности на 4, 8, 3, 6, 5 частей и построение звёздочек</figcaption>
+            </figure>
+
+            <h3 id="p2">2. Сопряжения</h3>
+
+            <p class="center-formula">
+                Сопряжение — это плавный переход одной линии в другую.
+            </p>
+
+            <p>Используют сопряжения для придания изделиям повышенной прочности, более красивого внешнего вида и безопасности (чтобы не пораниться об острые края и углы изделий).</p>
+
+            <h4>Элементы сопряжения</h4>
+            <ul class="list-right">
+                <li><strong>Центр сопряжения</strong> — точка, из которой проводят сопрягающую дугу;</li>
+                <li><strong>Радиус сопряжения</strong> — радиус дуги перехода;</li>
+                <li><strong>Точка сопряжения</strong> — точка, в которой одна линия переходит в другую;</li>
+                <li><strong>Сопрягающая дуга</strong> — часть окружности заданного радиуса между точками сопряжения.</li>
+            </ul>
+
+            <figure>
+                <img src="images/elementy-sopryazheniya.png" alt="Элементы сопряжения">
+                <figcaption>Рис. 5. Элементы сопряжения</figcaption>
+            </figure>
+
+            <h4>Алгоритм построения сопряжений двух прямых</h4>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Сопрягаемые элементы</th>
+                            <th>Построение центра (точка O)</th>
+                            <th>Определение точек сопряжения (1 и 2)</th>
+                            <th>Построение дуги радиуса R</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Две прямые под острым углом</td>
+                            <td>Строим вспомогательные прямые, параллельные данным на расстоянии R. Точка пересечения — центр сопряжения O</td>
+                            <td>Опускаем перпендикуляры из точки O на заданные прямые. Получаем точки 1 и 2</td>
+                            <td>Проводим дугу радиуса R между точками 1 и 2</td>
+                        </tr>
+                        <tr>
+                            <td>Две прямые под тупым углом</td>
+                            <td>То же</td>
+                            <td>То же</td>
+                            <td>То же</td>
+                        </tr>
+                        <tr>
+                            <td>Две взаимно перпендикулярные прямые</td>
+                            <td>То же</td>
+                            <td>То же</td>
+                            <td>То же</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <figure>
+                <img src="images/sopryazheniya-pryamyh.png" alt="Сопряжения двух прямых">
+                <figcaption>Рис. 6. Алгоритм построения сопряжений двух прямых</figcaption>
+            </figure>
+
+            <h4>Сопряжение окружности и прямой</h4>
+            <ol>
+                <li>Строим на расстоянии <strong>R</strong> от заданной прямой параллельную ей прямую. Из центра окружности проводим вспомогательную дугу Rвсп = R₁ + R. Отмечаем их пересечение (точка <strong>O</strong>).</li>
+                <li>Опускаем перпендикуляр из точки <strong>O</strong> на заданную прямую, соединяем точку <strong>O</strong> с центром окружности. Получаем точки <strong>1</strong> и <strong>2</strong>.</li>
+                <li>Заданным радиусом <strong>R</strong> проводим дугу между точками <strong>1</strong> и <strong>2</strong>.</li>
+            </ol>
+
+            <h4>Внешнее сопряжение двух окружностей</h4>
+            <ol>
+                <li>Строим вспомогательные дуги радиусами R₁ + R и R₂ + R. Получаем точку <strong>O</strong>.</li>
+                <li>Соединяем точку <strong>O</strong> с центрами окружностей. Получаем точки <strong>1</strong> и <strong>2</strong>.</li>
+                <li>Проводим дугу радиуса <strong>R</strong> из точки <strong>O</strong>.</li>
+            </ol>
+
+            <h4>Внутреннее сопряжение двух окружностей</h4>
+            <ol>
+                <li>Строим вспомогательные дуги радиусами R − R₁ и R − R₂. Получаем точку <strong>O</strong>.</li>
+                <li>Соединяем точку <strong>O</strong> с центрами окружностей и продолжаем до пересечения в точках <strong>1</strong> и <strong>2</strong>.</li>
+                <li>Проводим дугу радиуса <strong>R</strong> из точки <strong>O</strong>.</li>
+            </ol>
+
+            <figure>
+                <img src="images/sopryazheniya-okruzhnostey.png" alt="Сопряжения окружности и прямой, двух окружностей">
+                <figcaption>Рис. 7. Алгоритмы построения сопряжений окружности и прямой, двух окружностей</figcaption>
+            </figure>
+
+            <h3 id="p3">3. Чертёж «плоской» детали</h3>
+
+            <p class="center-italic">
+                Алгоритм построения чертежа «плоской» несимметричной детали.
+            </p>
+
+            <ol class="algo-list">
+                <li><strong>Анализ геометрической формы и симметричности детали.</strong>
+                    <p>Определяем, из каких геометрических тел состоит деталь, есть ли у неё оси симметрии.</p>
+                </li>
+                <li><strong>Выбор главного вида, анализ его графического состава и выбор опорной точки.</strong>
+                    <p>Главный вид — самый информативный. Находим на нём опорную точку для построения.</p>
+                </li>
+                <li><strong>Выбор положения формата и масштаба изображения.</strong>
+                    <p>Если длина детали больше высоты — формат горизонтальный; если высота больше — вертикальный.</p>
+                </li>
+                <li><strong>Определение рабочего поля чертежа.</strong>
+                    <p>Внутренняя часть формата без рамки и основной надписи.</p>
+                </li>
+                <li><strong>Композиция формата и построение габаритного прямоугольника.</strong>
+                    <p>Расчёт по формулам:</p>
+                    <p class="formula">M = (L р. поля − l дет.) / 2</p>
+                    <p class="formula">N = (H р. поля − h дет.) / 2</p>
+                </li>
+                <li><strong>Построение очертания изображения:</strong>
+                    <p>а — внешнего контура детали;<br>б — внутреннего контура детали.</p>
+                </li>
+                <li><strong>Нанесение размеров:</strong>
+                    <p>а — по длине: размеры характерных элементов, координирующие, габаритные;<br>б — по высоте — в той же последовательности;<br>в — по толщине — s.</p>
+                </li>
+                <li><strong>Обводка:</strong>
+                    <p>а — окружности, дуги;<br>б — все горизонтальные линии;<br>в — вертикальные линии;<br>г — наклонные линии.</p>
+                </li>
+                <li><strong>Заполнение основной надписи. Проверка чертежа.</strong></li>
+            </ol>
+
+            <div class="note">
+                <strong>Итог:</strong> геометрические построения — основа любого чертежа. Без умения делить отрезки, углы и окружности, без владения сопряжениями невозможно правильно изобразить ни одну деталь.
+            </div>
+
+            <nav class="page-nav">
+                <a href="osnovnye-pravila.html">← Предыдущий</a>
+                <a href="proecirovanie.html">Следующий раздел →</a>
+            </nav>
+        </main>
+
+    </div>
+
+    <footer class="site-footer">
+        <p>© 2026, Иван Иванов, 10 класс. Школьный проект.</p>
+    </footer>
+
+    <script>
+        (function() {
+            var bar = document.getElementById('progressBar');
+            if (!bar) return;
+            function update() {
+                var h = document.documentElement;
+                var scrollTop = window.pageYOffset || h.scrollTop;
+                var docHeight = h.scrollHeight - h.clientHeight;
+                var percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                bar.style.width = percent + '%';
+            }
+            window.addEventListener('scroll',

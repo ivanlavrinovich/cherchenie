@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Политика конфиденциальности</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="section-page">
+
+    <div class="reading-progress"><div class="reading-progress-bar" id="progressBar"></div></div>
+
+    <header class="site-header hero-header">
+        <div class="hero-content">
+            <p class="hero-overline">Документы · Правовая информация</p>
+            <h1>Политика<br>конфиденциальности</h1>
+            <p class="hero-sub">Простыми словами: какие данные мы храним, зачем и что с ними происходит.</p>
+            <div class="hero-meta">
+                <span>Без email</span>
+                <span class="dot">·</span>
+                <span>без телефона</span>
+                <span class="dot">·</span>
+                <span>без имён</span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs">
+        <a href="index.html">Главная</a>
+        <span class="breadcrumbs-sep">/</span>
+        <span class="breadcrumbs-current">Политика конфиденциальности</span>
+    </nav>
+
+    <main class="content" style="max-width: 900px; margin: 2rem auto;">
+
+        <p class="lead center">
+            <strong>Коротко:</strong> мы не собираем персональные данные. Всё, что хранится о тебе — только в твоём браузере, и только для работы профиля.
+        </p>
+
+        <h3 id="p1">1. Какие данные мы НЕ собираем</h3>
+
+        <p>Сайт «Черчение» <strong>не запрашивает и не хранит</strong>:</p>
+
+        <ul class="list-right">
+            <li>настоящее имя и фамилию;</li>
+            <li>адрес электронной почты;</li>
+            <li>номер телефона;</li>
+            <li>дату рождения;</li>
+            <li>адрес проживания;</li>
+            <li>паспортные данные;</li>
+            <li>фотографии реального лица.</li>
+        </ul>
+
+        <h3 id="p2">2. Что мы храним</h3>
+
+        <p>При создании профиля сохраняются только:</p>
+
+        <ul class="list-right">
+            <li><strong>Псевдоним (ник)</strong> — вы его придумываете сами. Это не ваше настоящее имя.</li>
+            <li><strong>Хеш пароля</strong> — необработанная строка, из которой невозможно восстановить ваш пароль.</li>
+            <li><strong>Аватарка</strong> — картинка, которую вы сами загрузили (если загрузили).</li>
+            <li><strong>Прогресс изучения</strong> — какие темы вы прочитали.</li>
+        </ul>
+
+        <h3 id="p3">3. Где хранятся данные</h3>
+
+        <p><strong>Все данные хранятся только в вашем браузере</strong> — в специальной ячейке, которая называется <em>localStorage</em>. Эта ячейка находится на вашем устройстве и никуда не отправляется.</p>
+
+        <p>Владелец сайта, учителя или другие ученики <strong>не могут</strong> видеть ваши данные: ник, пароль, аватарку или прогресс. Доступа к ним нет ни у кого, кроме вас.</p>
+
+        <h3 id="p4">4. Чего мы НЕ делаем</h3>
+
+        <ul class="list-right">
+            <li>Не отправляем данные на серверы.</li>
+            <li>Не передаём их третьим лицам.</li>
+            <li>Не используем рекламу и трекеры.</li>
+            <li>Не анализируем поведение.</li>
+            <li>Не отправляем уведомлений.</li>
+        </ul>
+
+        <h3 id="p5">5. Ваши права</h3>
+
+        <p>Вы в любой момент можете:</p>
+
+        <ul class="list-right">
+            <li><strong>Выйти из аккаунта</strong> — кнопка «Выйти» в личном кабинете.</li>
+            <li><strong>Удалить аккаунт</strong> — кнопка «Удалить аккаунт». Это действие необратимо: все ваши данные (ник, хеш пароля, аватарка, прогресс) будут стёрты из браузера.</li>
+            <li><strong>Очистить кэш браузера</strong> — это тоже удалит профиль, потому что все данные хранятся в нём.</li>
+        </ul>
+
+        <h3 id="p6">6. Использование материалов</h3>
+
+        <p>Все материалы сайта — методическое пособие по черчению — предназначены для учебного использования учащимися школы. Разрешается свободно читать, изучать и использовать материалы для подготовки к урокам черчения.</p>
+
+        <h3 id="p7">7. Изменения в политике</h3>
+
+        <p>Если политика конфиденциальности изменится, новая версия появится на этой странице. Дата последнего обновления указана внизу.</p>
+
+        <div class="note">
+            <strong>Контакт:</strong> по любым вопросам, связанным с работой сайта, обращайтесь к автору проекта — ученику 10 класса.
+        </div>
+
+        <p class="center-italic">
+            Последнее обновление: 4 октября 2026 года.
+        </p>
+
+        <nav class="page-nav">
+            <a href="index.html">← На главную</a>
+            <a href="account.html">Личный кабинет →</a>
+        </nav>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2026, Иван Иванов, 10 класс. Школьный проект.</p>
+    </footer>
+
+    <script>
+        (function() {
+            var bar = document.getElementById('progressBar');
+            if (!bar) return;
+            function update() {
+                var h = document.documentElement;
+                var scrollTop = window.pageYOffset || h.scrollTop;
+                var docHeight = h.scrollHeight - h.clientHeight;
+                var percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                bar.style.width = percent + '%';
+            }
+            window.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            update();
+        })();
+    </script>
+
+</body>
+</html>

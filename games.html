@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мини-игры по черчению</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="section-page">
+
+    <div class="reading-progress"><div class="reading-progress-bar" id="progressBar"></div></div>
+
+    <div class="home-decor" aria-hidden="true">
+        <svg class="decor decor-1" viewBox="0 0 300 300">
+            <circle cx="150" cy="150" r="140" fill="none" stroke="#5ba3e8" stroke-width="1.5"/>
+            <circle cx="150" cy="150" r="100" fill="none" stroke="#5ba3e8" stroke-width="1"/>
+            <circle cx="150" cy="150" r="60" fill="none" stroke="#5ba3e8" stroke-width="1"/>
+            <line x1="10" y1="150" x2="290" y2="150" stroke="#5ba3e8" stroke-width="1" stroke-dasharray="8 4"/>
+            <line x1="150" y1="10" x2="150" y2="290" stroke="#5ba3e8" stroke-width="1" stroke-dasharray="8 4"/>
+        </svg>
+        <svg class="decor decor-2" viewBox="0 0 240 240">
+            <line x1="20" y1="20" x2="220" y2="20" stroke="#5ba3e8" stroke-width="1.5"/>
+            <line x1="20" y1="20" x2="20" y2="220" stroke="#5ba3e8" stroke-width="1.5"/>
+            <path d="M 70 20 A 50 50 0 0 0 20 70" fill="none" stroke="#5ba3e8" stroke-width="1.5"/>
+            <text x="55" y="55" fill="#5ba3e8" font-size="14" font-family="JetBrains Mono, monospace">90°</text>
+        </svg>
+    </div>
+
+    <header class="site-header hero-header">
+        <div class="hero-content">
+            <p class="hero-overline">Практика · Игры</p>
+            <h1>Мини-игры<br>по черчению</h1>
+            <p class="hero-sub">Проверь свои знания в трёх коротких играх. Результат сохраняется в браузере.</p>
+            <div class="hero-meta">
+                <span>3 игры</span>
+                <span class="dot">·</span>
+                <span>викторина</span>
+                <span class="dot">·</span>
+                <span>пары</span>
+                <span class="dot">·</span>
+                <span>правда/ложь</span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs">
+        <a href="index.html">Главная</a>
+        <span class="breadcrumbs-sep">/</span>
+        <span class="breadcrumbs-current">Мини-игры</span>
+    </nav>
+
+    <main class="content games-main">
+
+        <section class="game-block" id="game-quiz">
+            <div class="game-header">
+                <span class="game-num">01</span>
+                <h2>Викторина</h2>
+                <p class="game-desc">10 вопросов по всему курсу. Выбери правильный ответ из четырёх.</p>
+            </div>
+
+            <div class="game-quiz-wrap">
+                <div class="quiz-top">
+                    <span class="quiz-counter">Вопрос <span id="quiz-current">1</span> из <span id="quiz-total">10</span></span>
+                    <span class="quiz-score">Правильно: <strong id="quiz-score">0</strong></span>
+                </div>
+                <div class="quiz-track"><div class="quiz-fill" id="quiz-fill"></div></div>
+                <p class="quiz-question" id="quiz-question">Загрузка вопроса…</p>
+                <div class="quiz-answers" id="quiz-answers"></div>
+                <div class="quiz-result" id="quiz-result"></div>
+                <button class="quiz-restart" id="quiz-restart" type="button" style="display:none;">Играть снова</button>
+            </div>
+        </section>
+
+        <section class="game-block" id="game-match">
+            <div class="game-header">
+                <span class="game-num">02</span>
+                <h2>Найди пару</h2>
+                <p class="game-desc">Соедини тип линии с её назначением. Кликай по одной карточке слева и одной справа.</p>
+            </div>
+
+            <div class="match-wrap">
+                <div class="match-columns">
+                    <div class="match-col" id="match-left"></div>
+                    <div class="match-col" id="match-right"></div>
+                </div>
+                <div class="match-status" id="match-status"></div>
+                <button class="match-restart" id="match-restart" type="button">Начать заново</button>
+            </div>
+        </section>
+
+        <section class="game-block" id="game-truefalse">
+            <div class="game-header">
+                <span class="game-num">03</span>
+                <h2>Правда или ложь</h2>
+                <p class="game-desc">Прочитай утверждение и реши — верное оно или нет.</p>
+            </div>
+
+            <div class="tf-wrap">
+                <p class="tf-statement" id="tf-statement">Загрузка…</p>
+                <div class="tf-buttons">
+                    <button class="tf-btn tf-true" id="tf-true" type="button">Правда</button>
+                    <button class="tf-btn tf-false" id="tf-false" type="button">Ложь</button>
+                </div>
+                <div class="tf-result" id="tf-result"></div>
+                <div class="tf-progress">Отвечено: <span id="tf-count">0</span> · Правильно: <strong id="tf-score">0</strong></div>
+            </div>
+        </section>
+
+        <nav class="page-nav">
+            <a href="index.html">← На главную</a>
+        </nav>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2026, Иван Иванов, 10 класс. Школьный проект.</p>
+    </footer>
+
+    <script>
+        (function() {
+            var bar = document.getElementById('progressBar');
+            if (!bar) return;
+            function update() {
+                var h = document.documentElement;
+                var scrollTop = window.pageYOffset || h.scrollTop;
+                var docHeight = h.scrollHeight - h.clientHeight;
+                var percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                bar.style.width = percent + '%';
+            }
+            window.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            update();
+        })();
+    </script>
+
+    <script src="games.js"></script>
+    <script src="account.js"></script>
+
+</body>
+</html>

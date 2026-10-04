@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ---------- СТРАНИЦА АККАУНТА ---------- */
+
+        .account-main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ---------- ФОРМА ВХОДА / РЕГИСТРАЦИИ ---------- */
+
+        .auth-box {
+            max-width: 420px;
+            margin: 3rem auto;
+            padding: 2.5rem 2rem;
+            background: #0b1626;
+            border: 1px solid #1b3a5c;
+            border-radius: 14px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        .auth-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #1b3a5c;
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 0.8rem;
+            background: transparent;
+            border: none;
+            color: #8aa8c8;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .auth-tab.active {
+            color: #7bb8f0;
+            border-bottom-color: #5ba3e8;
+        }
+
+        .auth-field {
+            margin-bottom: 1.2rem;
+        }
+
+        .auth-field label {
+            display: block;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.8rem;
+            color: #5ba3e8;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .auth-field input {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            background: #070b14;
+            border: 1px solid #1b3a5c;
+            border-radius: 8px;
+            color: #e8e2d0;
+            font-family: "Inter", sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .auth-field input:focus {
+            border-color: #5ba3e8;
+        }
+
+        .auth-submit {
+            width: 100%;
+            padding: 1rem;
+            background: #5ba3e8;
+            color: #0a1424;
+            border: none;
+            border-radius: 8px;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 1rem;
+        }
+
+        .auth-submit:hover {
+            background: #8ec5f5;
+            transform: translateY(-2px);
+        }
+
+        .auth-error {
+            margin-top: 1rem;
+            padding: 0.8rem 1rem;
+            background: #2a1a1a;
+            border-left: 3px solid #ef5350;
+            color: #ffcdd2;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .auth-error.show {
+            display: block;
+        }
+
+        .auth-hint {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #8aa8c8;
+        }
+
+        /* ---------- ПРОФИЛЬ ---------- */
+
+        .profile-header {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            padding: 2rem;
+            background: #0b1626;
+            border: 1px solid #1b3a5c;
+            border-radius: 14px;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(91, 163, 232, 0.15), transparent 70%);
+            pointer-events: none;
+        }
+
+        .profile-avatar-wrap {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1b3a5c, #142438);
+            border: 3px solid #2a4f78;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: #8ec5f5;
+            font-size: 3rem;
+            transition: border-color 0.25s;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-avatar-wrap:hover .profile-avatar {
+            border-color: #5ba3e8;
+        }
+
+        .avatar-upload-btn {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #5ba3e8;
+            border: 3px solid #0b1626;
+            color: #0a1424;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .avatar-upload-btn:hover {
+            background: #8ec5f5;
+            transform: scale(1.1);
+        }
+
+        .avatar-upload-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .profile-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .profile-name {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 0 0 0.5rem;
+            letter-spacing: -0.02em;
+            word-break: break-word;
+        }
+
+        .profile-meta {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.85rem;
+            color: #8aa8c8;
+            letter-spacing: 1px;
+        }
+
+        .profile-actions {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .profile-actions button,
+        .profile-actions a {
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            border: 1px solid;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border-color: #2a4f78;
+            color: #8aa8c8;
+        }
+
+        .btn-outline:hover {
+            border-color: #5ba3e8;
+            color: #8ec5f5;
+        }
+
+        .btn-logout {
+            background: #2a1a1a;
+            border-color: #8a2a2a;
+            color: #ff9a9a;
+        }
+
+        .btn-logout:hover {
+            background: #4a1a1a;
+            border-color: #ef5350;
+            color: #ffcdd2;
+        }
+
+        /* ---------- ТАБЫ ---------- */
+
+        .profile-tabs {
+            display: flex;
+            gap: 0.4rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #1b3a5c;
+            flex-wrap: wrap;
+        }
+
+        .profile-tab {
+            padding: 0.9rem 1.3rem;
+            background: transparent;
+            border: none;
+            color: #8aa8c8;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .profile-tab.active {
+            color: #7bb8f0;
+            border-bottom-color: #5ba3e8;
+        }
+
+        .profile-tab:hover:not(.active) {
+            color: #b8c9dc;
+        }
+
+        .profile-panel {
+            display: none;
+        }
+
+        .profile-panel.active {
+            display: block;
+            animation: panelFade 0.3s ease-out;
+        }
+
+        @keyframes panelFade {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ---------- ПАНЕЛЬ ПРОГРЕССА ---------- */
+
+        .progress-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            padding: 1.2rem 1.5rem;
+            background: #0b1626;
+            border: 1px solid #1b3a5c;
+            border-radius: 12px;
+            transition: border-color 0.25s;
+        }
+
+        .progress-item:hover {
+            border-color: #2a4f78;
+        }
+
+        .progress-item-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .progress-item-title {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #7bb8f0;
+            margin: 0 0 0.5rem;
+        }
+
+        .progress-item-bar {
+            height: 6px;
+            background: #0a1424;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-item-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #5ba3e8, #8ec5f5);
+            border-radius: 3px;
+            transition: width 0.6s ease-out;
+        }
+
+        .progress-item-fill.complete {
+            background: linear-gradient(90deg, #43a047, #66bb6a);
+        }
+
+        .progress-item-percent {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #8ec5f5;
+            min-width: 60px;
+            text-align: right;
+        }
+
+        /* ---------- ПАНЕЛЬ ДОСТИЖЕНИЙ ---------- */
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .achievement {
+            padding: 1.3rem 1.2rem;
+            background: #0b1626;
+            border: 1px solid #1b3a5c;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.25s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement.locked {
+            opacity: 0.4;
+        }
+
+        .achievement.unlocked {
+            border-color: #43a047;
+            background: linear-gradient(160deg, #102a1a 0%, #0b1626 100%);
+        }
+
+        .achievement.unlocked:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(67, 160, 71, 0.3);
+        }
+
+        .achievement-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        .achievement-title {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #7bb8f0;
+            margin: 0 0 0.3rem;
+        }
+
+        .achievement.unlocked .achievement-title {
+            color: #81c784;
+        }
+
+        .achievement-desc {
+            font-size: 0.85rem;
+            color: #8aa8c8;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* ---------- ПАНЕЛЬ СКАЧАННОГО ---------- */
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #8aa8c8;
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        /* ---------- МОБИЛЬНАЯ ВЕРСИЯ ---------- */
+
+        @media (max-width: 700px) {
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.2rem;
+                padding: 1.5rem;
+            }
+
+            .profile-name { font-size: 1.5rem; }
+
+            .profile-actions { justify-content: center; }
+
+            .auth-box { padding: 1.8rem 1.3rem; }
+        }
+    </style>
+</head>
+<body class="section-page">
+
+    <div class="reading-progress"><div class="reading-progress-bar" id="progressBar"></div></div>
+
+    <header class="site-header hero-header">
+        <div class="hero-content">
+            <p class="hero-overline">Профиль · Аккаунт</p>
+            <h1>Личный кабинет</h1>
+            <p class="hero-sub">Следи за прогрессом, собирай достижения, храни свою аватарку.</p>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs">
+        <a href="index.html">Главная</a>
+        <span class="breadcrumbs-sep">/</span>
+        <span class="breadcrumbs-current">Личный кабинет</span>
+    </nav>
+
+    <main class="account-main" id="account-main">
+        <!-- Сюда рендерится либо форма входа, либо профиль -->
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2026, Иван Иванов, 10 класс. Школьный проект.</p>
+    </footer>
+
+    <script src="account.js"></script>
+
+    <script>
+    (function () {
+        var ACC = window.AccountSystem;
+        var main = document.getElementById('account-main');
+
+        /* ============================================================
+           ФОРМА ВХОДА / РЕГИСТРАЦИИ
+           ============================================================ */
+
+        function renderAuth() {
+            main.innerHTML =
+                '<div class="auth-box">' +
+                    '<div class="auth-tabs">' +
+                        '<button class="auth-tab active" data-tab="login">Вход</button>' +
+                        '<button class="auth-tab" data-tab="register">Регистрация</button>' +
+                    '</div>' +
+                    '<div class="auth-field">' +
+                        '<label for="auth-name">Ник</label>' +
+                        '<input type="text" id="auth-name" placeholder="Как тебя зовут?" autocomplete="off">' +
+                    '</div>' +
+                    '<div class="auth-field">' +
+                        '<label for="auth-pass">Пароль</label>' +
+                        '<input type="password" id="auth-pass" placeholder="Минимум 4 символа">' +
+                    '</div>' +
+                    '<button class="auth-submit" id="auth-submit">Войти</button>' +
+                    '<div class="auth-error" id="auth-error"></div>' +
+                    '<p class="auth-hint">🔒 Все данные хранятся только в твоём браузере.<br>Мы ничего не отправляем на сервер.</p>' +
+                '</div>';
+
+            var mode = 'login';
+            var tabs = main.querySelectorAll('.auth-tab');
+            var submitBtn = main.querySelector('#auth-submit');
+            var errorEl = main.querySelector('#auth-error');
+
+            /* Переключение вкладок */
+            tabs.forEach(function (tab) {
+                tab.addEventListener('click', function () {
+                    mode = tab.dataset.tab;
+                    tabs.forEach(function (t) { t.classList.remove('active'); });
+                    tab.classList.add('active');
+                    submitBtn.textContent = mode === 'login' ? 'Войти' : 'Создать аккаунт';
+                    errorEl.classList.remove('show');
+                });
+            });
+
+            /* Отправка формы */
+            submitBtn.addEventListener('click', function () {
+                var name = main.querySelector('#auth-name').value.trim();
+                var pass = main.querySelector('#auth-pass').value;
+
+                var result = mode === 'login'
+                    ? ACC.login(name, pass)
+                    : ACC.register(name, pass);
+
+                if (!result.ok) {
+                    errorEl.textContent = result.error;
+                    errorEl.classList.add('show');
+                    return;
+                }
+
+                /* Успех — перерисовываем профиль */
+                renderProfile();
+            });
+
+            /* Enter в полях */
+            main.querySelectorAll('input').forEach(function (inp) {
+                inp.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter') submitBtn.click();
+                });
+            });
+        }
+
+        /* ============================================================
+           ПРОФИЛЬ
+           ============================================================ */
+
+        function renderProfile() {
+            var user = ACC.getCurrentUser();
+            if (!user) { renderAuth(); return; }
+
+            var created = new Date(user.createdAt);
+            var dateStr = created.toLocaleDateString('ru-RU', {
+                day: '2-digit', month: 'long', year: 'numeric'
+            });
+
+            /* Считаем общий прогресс */
+            var progress = ACC.readJSON(ACC.PROGRESS_KEY, {});
+            var totalRead = 0;
+            for (var page in progress) {
+                if (progress.hasOwnProperty(page)) totalRead += progress[page].length;
+            }
+
+            /* Разметка */
+            main.innerHTML =
+                '<div class="profile-header">' +
+                    '<div class="profile-avatar-wrap">' +
+                        '<div class="profile-avatar" id="profile-avatar">' +
+                            (user.avatar
+                                ? '<img src="' + user.avatar + '" alt="avatar">'
+                                : '👤') +
+                        '</div>' +
+                        '<label class="avatar-upload-btn" title="Загрузить аватарку">' +
+                            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">' +
+                                '<path d="M12 5 V19 M5 12 H19"/>' +
+                            '</svg>' +
+                            '<input type="file" accept="image/*" id="avatar-input" style="display:none;">' +
+                        '</label>' +
+                    '</div>' +
+                    '<div class="profile-info">' +
+                        '<h2 class="profile-name">' + escapeHtml(user.name) + '</h2>' +
+                        '<p class="profile-meta">С нами с ' + dateStr + ' · Прочитано тем: ' + totalRead + '</p>' +
+                        '<div class="profile-actions">' +
+                            '<a href="index.html" class="btn-outline">← На главную</a>' +
+                            '<button class="btn-logout" id="logout-btn">Выйти</button>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>' +
+
+                '<div class="profile-tabs">' +
+                    '<button class="profile-tab active" data-tab="progress">📈 Прогресс</button>' +
+                    '<button class="profile-tab" data-tab="achievements">🏆 Достижения</button>' +
+                    '<button class="profile-tab" data-tab="downloads">📁 Материалы</button>' +
+                '</div>' +
+
+                '<div class="profile-panel active" data-panel="progress" id="panel-progress"></div>' +
+                '<div class="profile-panel" data-panel="achievements" id="panel-achievements"></div>' +
+                '<div class="profile-panel" data-panel="downloads" id="panel-downloads"></div>';
+
+            /* Вкладки */
+            var tabs = main.querySelectorAll('.profile-tab');
+            var panels = main.querySelectorAll('.profile-panel');
+
+            tabs.forEach(function (tab) {
+                tab.addEventListener('click', function () {
+                    tabs.forEach(function (t) { t.classList.remove('active'); });
+                    panels.forEach(function (p) { p.classList.remove('active'); });
+                    tab.classList.add('active');
+                    main.querySelector('[data-panel="' + tab.dataset.tab + '"]').classList.add('active');
+                });
+            });
+
+            /* Обработчик загрузки аватарки */
+            var fileInput = main.querySelector('#avatar-input');
+            fileInput.addEventListener('change', function (e) {
+                var file = e.target.files[0];
+                if (!file) return;
+
+                ACC.processAvatar(file, function (result) {
+                    if (!result.ok) {
+                        alert(result.error);
+                        return;
+                    }
+                    ACC.updateUser({ avatar: result.dataUrl });
+                    renderProfile();
+                });
+            });
+
+            /* Кнопка «Выйти» */
+            main.querySelector('#logout-btn').addEventListener('click', function () {
+                if (confirm('Выйти из аккаунта?')) {
+                    ACC.logout();
+                    renderAuth();
+                }
+            });
+
+            /* Рисуем все три панели */
+            renderProgressPanel();
+            renderAchievementsPanel();
+            renderDownloadsPanel();
+        }
+
+        /* ============================================================
+           ПАНЕЛЬ «ПРОГРЕСС»
+           ============================================================ */
+
+        function renderProgressPanel() {
+            var progress = ACC.readJSON(ACC.PROGRESS_KEY, {});
+
+            /* Карта страниц и их названий */
+            var PAGES = {
+                'osnovnye-pravila.html': { title: 'Основные правила оформления', total: 11 },
+                'geometricheskie-postroeniya.html': { title: 'Геометрические построения', total: 3 },
+                'proecirovanie.html': { title: 'Прямоугольное проецирование', total: 4 },
+                'aksonometriya.html': { title: 'Аксонометрические проекции', total: 3 },
+                'secheniya.html': { title: 'Сечения', total: 4 },
+                'razrezy.html': { title: 'Разрезы', total: 4 },
+                'soedineniya.html': { title: 'Чертежи типовых соединений', total: 3 }
+            };
+
+            var html = '<div class="progress-list">';
+            var anyProgress = false;
+
+            for (var page in PAGES) {
+                if (!PAGES.hasOwnProperty(page)) continue;
+                var info = PAGES[page];
+                var read = (progress[page] || []).length;
+                var percent = info.total > 0 ? Math.round((read / info.total) * 100) : 0;
+                if (read > 0) anyProgress = true;
+
+                html +=
+                    '<a href="' + page + '" class="progress-item" style="text-decoration:none;color:inherit;">' +
+                        '<div class="progress-item-info">' +
+                            '<p class="progress-item-title">' + info.title + '</p>' +
+                            '<div class="progress-item-bar">' +
+                                '<div class="progress-item-fill' + (percent === 100 ? ' complete' : '') + '" style="width:' + percent + '%"></div>' +
+                            '</div>' +
+                        '</div>' +
+                        '<div class="progress-item-percent">' + percent + '%</div>' +
+                    '</a>';
+            }
+
+            html += '</div>';
+
+            if (!anyProgress) {
+                html =
+                    '<div class="empty-state">' +
+                        '<div class="empty-state-icon">📖</div>' +
+                        '<p>Пока ничего не изучено.<br>Открой любой раздел — прогресс появится автоматически.</p>' +
+                    '</div>';
+            }
+
+            document.getElementById('panel-progress').innerHTML = html;
+        }
+
+        /* ============================================================
+           ПАНЕЛЬ «ДОСТИЖЕНИЯ»
+           ============================================================ */
+
+        function renderAchievementsPanel() {
+            var list = ACC.getAchievements();
+            var html = '<div class="achievements-grid">';
+
+            list.forEach(function (a) {
+                html +=
+                    '<div class="achievement ' + (a.unlocked ? 'unlocked' : 'locked') + '">' +
+                        '<span class="achievement-icon">' + a.icon + '</span>' +
+                        '<h4 class="achievement-title">' + a.title + '</h4>' +
+                        '<p class="achievement-desc">' + a.desc + '</p>' +
+                    '</div>';
+            });
+
+            html += '</div>';
+            document.getElementById('panel-achievements').innerHTML = html;
+        }
+
+        /* ============================================================
+           ПАНЕЛЬ «МАТЕРИАЛЫ»
+           ============================================================ */
+
+        function renderDownloadsPanel() {
+            document.getElementById('panel-downloads').innerHTML =
+                '<div class="empty-state">' +
+                    '<div class="empty-state-icon">📁</div>' +
+                    '<p>Здесь будут появляться материалы, которые ты скачал:<br>памятки, шаблоны, готовые чертежи.</p>' +
+                    '<p style="margin-top:1rem;color:#5a7a9a;">Пока ничего не скачано.</p>' +
+                '</div>';
+        }
+
+        /* ============================================================
+           ВСПОМОГАТЕЛЬНОЕ
+           ============================================================ */
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        /* Скроллбар сверху страницы */
+        (function () {
+            var bar = document.getElementById('progressBar');
+            if (!bar) return;
+            function update() {
+                var h = document.documentElement;
+                var scrollTop = window.pageYOffset || h.scrollTop;
+                var docHeight = h.scrollHeight - h.clientHeight;
+                var percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                bar.style.width = percent + '%';
+            }
+            window.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            update();
+        })();
+
+        /* ============================================================
+           СТАРТ
+           ============================================================ */
+
+        if (ACC.getCurrentUser()) {
+            renderProfile();
+        } else {
+            renderAuth();
+        }
+
+    })();
+    </script>
+
+</body>
+</html>
