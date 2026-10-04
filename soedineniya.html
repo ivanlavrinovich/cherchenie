@@ -4,67 +4,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Чертежи типовых соединений деталей</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f2544'/%3E%3Ctext x='50' y='72' font-family='JetBrains Mono, monospace' font-size='70' font-weight='800' fill='%237bb8f0' text-anchor='middle'%3EЧ%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="section-page">
 
-    <header class="site-header">
-        <h1>Чертежи типовых соединений деталей</h1>
-        <p>Раздел 7</p>
+    <div class="reading-progress"><div class="reading-progress-bar" id="progressBar"></div></div>
+
+    <div class="home-decor" aria-hidden="true">
+        <svg class="decor decor-1" viewBox="0 0 300 300">
+            <circle cx="150" cy="150" r="140" fill="none" stroke="#5ba3e8" stroke-width="1.5"/>
+            <circle cx="150" cy="150" r="100" fill="none" stroke="#5ba3e8" stroke-width="1"/>
+            <line x1="10" y1="150" x2="290" y2="150" stroke="#5ba3e8" stroke-width="1" stroke-dasharray="8 4"/>
+            <line x1="150" y1="10" x2="150" y2="290" stroke="#5ba3e8" stroke-width="1" stroke-dasharray="8 4"/>
+        </svg>
+    </div>
+
+    <header class="site-header hero-header">
+        <div class="hero-content">
+            <p class="hero-overline">Раздел 07 · Соединения</p>
+            <h1>Чертежи типовых<br>соединений</h1>
+            <p class="hero-sub">Резьбовые, шпоночные, шлицевые, сварные, паяные, клеевые и заклёпочные соединения.</p>
+            <div class="hero-meta">
+                <span>3 темы</span>
+                <span class="dot">·</span>
+                <span>теория</span>
+                <span class="dot">·</span>
+                <span>практикум</span>
+            </div>
+        </div>
     </header>
 
-    <main class="content">
-        <p class="lead"><strong>Суть раздела:</strong> изучить, как изображаются на чертежах соединения деталей — разъёмные и неразъёмные.</p>
+    <nav class="breadcrumbs">
+        <a href="index.html">Главная</a>
+        <span class="breadcrumbs-sep">/</span>
+        <span class="breadcrumbs-current">Чертежи типовых соединений</span>
+    </nav>
 
-        <nav class="toc">
-            <h3>Содержание</h3>
-            <ol>
-                <li><a href="#p1">Разъёмные соединения</a></li>
-                <li><a href="#p2">Неразъёмные соединения</a></li>
-                <li><a href="#p3">Резьбы</a></li>
-            </ol>
-        </nav>
+    <div class="page-layout">
 
-        <h3 id="p1">Разъёмные соединения</h3>
-        <ul>
-            <li>резьбовые: болтовые, винтовые, шпилечные;</li>
-            <li>шпоночные;</li>
-            <li>шлицевые;</li>
-            <li>штифтовые.</li>
-        </ul>
+        <aside class="sidebar">
+            <h3 class="sidebar-title">Содержание</h3>
+            <nav class="sidebar-nav">
+                <a href="#p1" class="sidebar-link"><span class="sidebar-num">1</span><span class="sidebar-text">Разъёмные соединения</span></a>
+                <a href="#p2" class="sidebar-link"><span class="sidebar-num">2</span><span class="sidebar-text">Неразъёмные соединения</span></a>
+                <a href="#p3" class="sidebar-link"><span class="sidebar-num">3</span><span class="sidebar-text">Резьбы</span></a>
+            </nav>
+        </aside>
 
-        <h3 id="p2">Неразъёмные соединения</h3>
-        <ul>
-            <li>сварные;</li>
-            <li>паяные;</li>
-            <li>клеевые;</li>
-            <li>заклёпочные.</li>
-        </ul>
+        <main class="content">
 
-        <h3 id="p3">Резьбы</h3>
-        <p>Основные типы:</p>
-        <ul>
-            <li>метрическая — <strong>M</strong>;</li>
-            <li>трубная — <strong>G</strong>;</li>
-            <li>трапецеидальная — <strong>Tr</strong>;</li>
-            <li>упорная — <strong>S</strong>;</li>
-            <li>круглая — <strong>Rd</strong>.</li>
-        </ul>
-        <p>Обозначение: <strong>M20×1,5</strong>, где 20 — наружный диаметр, 1,5 — шаг.</p>
+            <p class="lead center">
+                <strong>Суть раздела:</strong> изучить, как изображаются на чертежах соединения деталей — разъёмные и неразъёмные.
+            </p>
 
-        <div class="note">
-            <strong>Итог:</strong> умение изображать типовые соединения нужно при чтении и выполнении сборочных чертежей.
-        </div>
+            <h3 id="p1">1. Разъёмные соединения</h3>
 
-        <nav class="page-nav">
-            <a href="razrezy.html">← Предыдущий</a>
-            <a href="chtenie-i-detalinovanie.html">Следующий раздел →</a>
-        </nav>
-    </main>
+            <ul>
+                <li>резьбовые: болтовые, винтовые, шпилечные;</li>
+                <li>шпоночные;</li>
+                <li>шлицевые;</li>
+                <li>штифтовые.</li>
+            </ul>
+
+            <h3 id="p2">2. Неразъёмные соединения</h3>
+
+            <ul>
+                <li>сварные;</li>
+                <li>паяные;</li>
+                <li>клеевые;</li>
+                <li>заклёпочные.</li>
+            </ul>
+
+            <h3 id="p3">3. Резьбы</h3>
+
+            <p>Основные типы:</p>
+
+            <ul>
+                <li>метрическая — <strong>M</strong>;</li>
+                <li>трубная — <strong>G</strong>;</li>
+                <li>трапецеидальная — <strong>Tr</strong>;</li>
+                <li>упорная — <strong>S</strong>;</li>
+                <li>круглая — <strong>Rd</strong>.</li>
+            </ul>
+
+            <p>Обозначение: <strong>M20×1,5</strong>, где 20 — наружный диаметр, 1,5 — шаг.</p>
+
+            <div class="note">
+                <strong>Итог:</strong> умение изображать типовые соединения нужно при чтении и выполнении сборочных чертежей.
+            </div>
+
+            <nav class="page-nav">
+                <a href="razrezy.html">← Предыдущий</a>
+                <a href="index.html">На главную →</a>
+            </nav>
+        </main>
+
+    </div>
 
     <footer class="site-footer">
-        <p>© 2026, Иван Иванов, 10 класс. Школьный проект.</p>
+        <p>© 2026, Иванов Иван, 10 «А». Школьный проект.</p>
+        <p style="margin-top: 0.6rem; font-size: 0.85rem;">
+            <a href="about.html" style="color: #5ba3e8;">О проекте</a> ·
+            <a href="privacy.html" style="color: #5ba3e8;">Политика конфиденциальности</a>
+        </p>
     </footer>
+
+    <script>
+        (function() {
+            var bar = document.getElementById('progressBar');
+            if (!bar) return;
+            function update() {
+                var h = document.documentElement;
+                var scrollTop = window.pageYOffset || h.scrollTop;
+                var docHeight = h.scrollHeight - h.clientHeight;
+                var percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                bar.style.width = percent + '%';
+            }
+            window.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            update();
+        })();
+    </script>
+
+    <script src="progress.js"></script>
+    <script src="account.js"></script>
 
 </body>
 </html>

@@ -4,57 +4,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Разрезы</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f2544'/%3E%3Ctext x='50' y='72' font-family='JetBrains Mono, monospace' font-size='70' font-weight='800' fill='%237bb8f0' text-anchor='middle'%3EЧ%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="section-page">
 
-    <header class="site-header">
-        <h1>Разрезы</h1>
-        <p>Раздел 6</p>
+    <div class="reading-progress"><div class="reading-progress-bar" id="progressBar"></div></div>
+
+    <div class="home-decor" aria-hidden="true">
+        <svg class="decor decor-1" viewBox="0 0 300 300">
+            <circle cx="150" cy="150" r="140" fill="none" stroke="#5ba3e8" stroke-width="1.5"/>
+            <circle cx="150" cy="150" r="100" fill="none" stroke="#5ba3e8" stroke-width="1"/>
+            <line x1="10" y1="150" x2="290" y2="150" stroke="#5ba3e8" stroke-width="1" stroke-dasharray="8 4"/>
+            <line x1="150" y1="10" x2="150" y2="290" stroke="#5ba3e8" stroke-width="1" stroke-dasharray="8 4"/>
+        </svg>
+    </div>
+
+    <header class="site-header hero-header">
+        <div class="hero-content">
+            <p class="hero-overline">Раздел 06 · Внутреннее устройство</p>
+            <h1>Разрезы</h1>
+            <p class="hero-sub">Простые, сложные, ступенчатые и ломаные разрезы. Соединение части вида и разреза.</p>
+            <div class="hero-meta">
+                <span>4 темы</span>
+                <span class="dot">·</span>
+                <span>теория</span>
+                <span class="dot">·</span>
+                <span>практикум</span>
+            </div>
+        </div>
     </header>
 
-    <main class="content">
-        <p class="lead"><strong>Суть раздела:</strong> научиться изображать внутреннее устройство детали, скрытое на виде.</p>
+    <nav class="breadcrumbs">
+        <a href="index.html">Главная</a>
+        <span class="breadcrumbs-sep">/</span>
+        <span class="breadcrumbs-current">Разрезы</span>
+    </nav>
 
-        <nav class="toc">
-            <h3>Содержание</h3>
-            <ol>
-                <li><a href="#p1">Что такое разрез</a></li>
-                <li><a href="#p2">Виды разрезов</a></li>
-                <li><a href="#p3">Обозначение</a></li>
-                <li><a href="#p4">Соединение с видом</a></li>
-            </ol>
-        </nav>
+    <div class="page-layout">
 
-        <h3 id="p1">Что такое разрез</h3>
-        <p>Разрез — изображение детали, мысленно рассечённой плоскостью. Показывают и то, что в секущей плоскости, и то, что за ней.</p>
+        <aside class="sidebar">
+            <h3 class="sidebar-title">Содержание</h3>
+            <nav class="sidebar-nav">
+                <a href="#p1" class="sidebar-link"><span class="sidebar-num">1</span><span class="sidebar-text">Что такое разрез</span></a>
+                <a href="#p2" class="sidebar-link"><span class="sidebar-num">2</span><span class="sidebar-text">Виды разрезов</span></a>
+                <a href="#p3" class="sidebar-link"><span class="sidebar-num">3</span><span class="sidebar-text">Обозначение</span></a>
+                <a href="#p4" class="sidebar-link"><span class="sidebar-num">4</span><span class="sidebar-text">Соединение с видом</span></a>
+            </nav>
+        </aside>
 
-        <h3 id="p2">Виды разрезов</h3>
-        <ul>
-            <li><strong>Простые</strong> — фронтальный, горизонтальный, профильный;</li>
-            <li><strong>Сложные</strong> — ступенчатые, ломаные;</li>
-            <li><strong>Местные</strong> — для показа небольшого участка.</li>
-        </ul>
+        <main class="content">
 
-        <h3 id="p3">Обозначение</h3>
-        <p>Секущая плоскость обозначается разомкнутой линией со стрелками и буквами: <em>А-А</em>. Если разрез совпадает с осью симметрии, обозначение не нужно.</p>
+            <p class="lead center">
+                <strong>Суть раздела:</strong> научиться изображать внутреннее устройство детали, скрытое на виде.
+            </p>
 
-        <h3 id="p4">Соединение с видом</h3>
-        <p>Соединение части вида и части разреза допускается, граница — волнистая линия или осевая симметрии.</p>
+            <h3 id="p1">1. Что такое разрез</h3>
 
-        <div class="note">
-            <strong>Итог:</strong> разрезы применяют, чтобы показать внутреннее устройство детали, которое на виде скрыто штриховыми линиями.
-        </div>
+            <p>Разрез — изображение детали, мысленно рассечённой плоскостью. Показывают и то, что в секущей плоскости, и то, что за ней.</p>
 
-        <nav class="page-nav">
-            <a href="secheniya.html">← Предыдущий</a>
-            <a href="soedineniya.html">Следующий раздел →</a>
-        </nav>
-    </main>
+            <h3 id="p2">2. Виды разрезов</h3>
+
+            <ul>
+                <li><strong>Простые</strong> — фронтальный, горизонтальный, профильный;</li>
+                <li><strong>Сложные</strong> — ступенчатые, ломаные;</li>
+                <li><strong>Местные</strong> — для показа небольшого участка.</li>
+            </ul>
+
+            <h3 id="p3">3. Обозначение</h3>
+
+            <p>Секущая плоскость обозначается разомкнутой линией со стрелками и буквами: <em>А-А</em>. Если разрез совпадает с осью симметрии, обозначение не нужно.</p>
+
+            <h3 id="p4">4. Соединение с видом</h3>
+
+            <p>Соединение части вида и части разреза допускается, граница — волнистая линия или осевая симметрии.</p>
+
+            <div class="note">
+                <strong>Итог:</strong> разрезы применяют, чтобы показать внутреннее устройство детали, которое на виде скрыто штриховыми линиями.
+            </div>
+
+            <nav class="page-nav">
+                <a href="secheniya.html">← Предыдущий</a>
+                <a href="soedineniya.html">Следующий раздел →</a>
+            </nav>
+        </main>
+
+    </div>
 
     <footer class="site-footer">
-        <p>© 2026, Иван Иванов, 10 класс. Школьный проект.</p>
+        <p>© 2026, Иванов Иван, 10 «А». Школьный проект.</p>
+        <p style="margin-top: 0.6rem; font-size: 0.85rem;">
+            <a href="about.html" style="color: #5ba3e8;">О проекте</a> ·
+            <a href="privacy.html" style="color: #5ba3e8;">Политика конфиденциальности</a>
+        </p>
     </footer>
+
+    <script>
+        (function() {
+            var bar = document.getElementById('progressBar');
+            if (!bar) return;
+            function update() {
+                var h = document.documentElement;
+                var scrollTop = window.pageYOffset || h.scrollTop;
+                var docHeight = h.scrollHeight - h.clientHeight;
+                var percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                bar.style.width = percent + '%';
+            }
+            window.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            update();
+        })();
+    </script>
+
+    <script src="progress.js"></script>
+    <script src="account.js"></script>
 
 </body>
 </html>

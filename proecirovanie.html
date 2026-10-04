@@ -4,69 +4,178 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Прямоугольное проецирование</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f2544'/%3E%3Ctext x='50' y='72' font-family='JetBrains Mono, monospace' font-size='70' font-weight='800' fill='%237bb8f0' text-anchor='middle'%3EЧ%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="section-page">
 
-    <header class="site-header">
-        <h1>Прямоугольное проецирование</h1>
-        <p>Раздел 3</p>
+    <div class="reading-progress"><div class="reading-progress-bar" id="progressBar"></div></div>
+
+    <div class="home-decor" aria-hidden="true">
+        <svg class="decor decor-1" viewBox="0 0 300 300">
+            <circle cx="150" cy="150" r="140" fill="none" stroke="#5ba3e8" stroke-width="1.5"/>
+            <circle cx="150" cy="150" r="100" fill="none" stroke="#5ba3e8" stroke-width="1"/>
+            <line x1="10" y1="150" x2="290" y2="150" stroke="#5ba3e8" stroke-width="1" stroke-dasharray="8 4"/>
+            <line x1="150" y1="10" x2="150" y2="290" stroke="#5ba3e8" stroke-width="1" stroke-dasharray="8 4"/>
+            <circle cx="150" cy="150" r="3" fill="#5ba3e8"/>
+        </svg>
+        <svg class="decor decor-2" viewBox="0 0 240 240">
+            <line x1="20" y1="20" x2="220" y2="20" stroke="#5ba3e8" stroke-width="1.5"/>
+            <line x1="20" y1="20" x2="20" y2="220" stroke="#5ba3e8" stroke-width="1.5"/>
+            <line x1="20" y1="20" x2="220" y2="220" stroke="#5ba3e8" stroke-width="1" stroke-dasharray="6 4"/>
+            <path d="M 70 20 A 50 50 0 0 0 20 70" fill="none" stroke="#5ba3e8" stroke-width="1.5"/>
+            <text x="55" y="55" fill="#5ba3e8" font-size="14" font-family="JetBrains Mono, monospace">90°</text>
+        </svg>
+        <svg class="decor decor-3" viewBox="0 0 300 260">
+            <path d="M40 40 L120 20 L200 40 L260 80 L240 200 L120 240 L40 200 Z" fill="none" stroke="#5ba3e8" stroke-width="1.5"/>
+            <path d="M40 40 L120 80 L200 40 M120 80 L120 240" fill="none" stroke="#5ba3e8" stroke-width="1"/>
+            <path d="M200 40 L260 80" stroke="#5ba3e8" stroke-width="1"/>
+        </svg>
+    </div>
+
+    <header class="site-header hero-header">
+        <div class="hero-content">
+            <p class="hero-overline">Раздел 03 · Проекции</p>
+            <h1>Прямоугольное<br>проецирование</h1>
+            <p class="hero-sub">Метод Монжа, комплексный чертёж, проекции точек и геометрических тел, виды на чертеже.</p>
+            <div class="hero-meta">
+                <span>6 тем</span>
+                <span class="dot">·</span>
+                <span>теория</span>
+                <span class="dot">·</span>
+                <span>практикум</span>
+            </div>
+        </div>
     </header>
 
-    <main class="content">
-        <p class="lead"><strong>Суть раздела:</strong> научиться строить комплексный чертёж — плоское изображение пространственного объекта методом прямоугольных проекций.</p>
+    <nav class="breadcrumbs">
+        <a href="index.html">Главная</a>
+        <span class="breadcrumbs-sep">/</span>
+        <span class="breadcrumbs-current">Прямоугольное проецирование</span>
+    </nav>
 
-        <nav class="toc">
-            <h3>Содержание</h3>
+    <div class="page-layout">
+
+        <aside class="sidebar">
+            <h3 class="sidebar-title">Содержание</h3>
+            <nav class="sidebar-nav">
+                <a href="#p1" class="sidebar-link"><span class="sidebar-num">1</span><span class="sidebar-text">Методы проецирования</span></a>
+                <a href="#p2" class="sidebar-link"><span class="sidebar-num">2</span><span class="sidebar-text">Метод Монжа</span></a>
+                <a href="#p3" class="sidebar-link"><span class="sidebar-num">3</span><span class="sidebar-text">Проекции точки</span></a>
+                <a href="#p4" class="sidebar-link"><span class="sidebar-num">4</span><span class="sidebar-text">Виды на чертеже</span></a>
+                <a href="#p5" class="sidebar-link"><span class="sidebar-num">5</span><span class="sidebar-text">Проецирование тел</span></a>
+                <a href="#p6" class="sidebar-link"><span class="sidebar-num">6</span><span class="sidebar-text">Чтение чертежа</span></a>
+            </nav>
+        </aside>
+
+        <main class="content">
+
+            <p class="lead center">
+                <strong>Суть раздела:</strong> научиться строить плоские изображения пространственных объектов. Это «грамматика» черчения: как из 3D-предмета получить 2D-чертёж.
+            </p>
+
+            <h3 id="p1">1. Методы проецирования</h3>
+
+            <ul>
+                <li><strong>Центральное</strong> — лучи выходят из одной точки. Используется в перспективе.</li>
+                <li><strong>Параллельное</strong> — лучи параллельны. Бывает косоугольным и прямоугольным.</li>
+                <li><strong>Ортогональное (прямоугольное)</strong> — основной метод технического черчения. Лучи перпендикулярны плоскости проекций.</li>
+            </ul>
+
+            <h3 id="p2">2. Метод Монжа</h3>
+
+            <p>Пространство делят на три взаимно перпендикулярные плоскости:</p>
+
+            <ul class="list-right">
+                <li><strong>V</strong> — фронтальная;</li>
+                <li><strong>H</strong> — горизонтальная;</li>
+                <li><strong>W</strong> — профильная.</li>
+            </ul>
+
+            <p>Их пересечения — оси <strong>X, Y, Z</strong>. Точка в пространстве задаётся координатами A(x, y, z). На комплексном чертеже получают три проекции:</p>
+
+            <ul class="list-right">
+                <li>фронтальную <strong>A'</strong>;</li>
+                <li>горизонтальную <strong>A</strong>;</li>
+                <li>профильную <strong>A''</strong>.</li>
+            </ul>
+
+            <p>Связь проекций обеспечивается линиями связи.</p>
+
+            <h3 id="p3">3. Проекции точки</h3>
+
+            <p>Любая точка пространства однозначно определяется тремя координатами. На комплексном чертеже её три проекции связаны между собой линиями связи, перпендикулярными осям.</p>
+
+            <figure>
+                <img src="images/proekcii-tochki.png" alt="Проекции точки">
+                <figcaption>Рис. 1. Комплексный чертёж точки</figcaption>
+            </figure>
+
+            <h3 id="p4">4. Виды на чертеже</h3>
+
+            <p>По ГОСТ 2.305 основных видов шесть: главный, сверху, слева, справа, снизу, сзади. <strong>Главный вид</strong> — самый информативный, его ставят на первое место.</p>
+
+            <h3 id="p5">5. Проецирование геометрических тел</h3>
+
+            <ul>
+                <li><strong>Многогранники:</strong> призма, пирамида.</li>
+                <li><strong>Тела вращения:</strong> цилиндр, конус, шар, тор.</li>
+            </ul>
+
+            <p>Находят проекции точек на поверхности. Для этого используют вспомогательные линии: образующие, окружности, рёбра.</p>
+
+            <h3 id="p6">6. Чтение чертежа</h3>
+
+            <p>Чтение — это мысленное воссоздание формы предмета по проекциям. Порядок:</p>
+
             <ol>
-                <li><a href="#p1">Методы проецирования</a></li>
-                <li><a href="#p2">Метод Монжа</a></li>
-                <li><a href="#p3">Проекции точки</a></li>
-                <li><a href="#p4">Виды на чертеже</a></li>
+                <li>Прочитать основную надпись.</li>
+                <li>Определить количество изображений.</li>
+                <li>Выделить главный вид.</li>
+                <li>Проанализировать форму по проекциям.</li>
+                <li>Учесть разрезы и сечения.</li>
+                <li>Проверить размеры и условности.</li>
             </ol>
-        </nav>
 
-        <h3 id="p1">Методы проецирования</h3>
-        <ul>
-            <li><strong>Центральное</strong> — лучи из одной точки (перспектива);</li>
-            <li><strong>Параллельное</strong> — лучи параллельны;</li>
-            <li><strong>Ортогональное (прямоугольное)</strong> — основной метод технического черчения.</li>
-        </ul>
+            <div class="note">
+                <strong>Итог:</strong> проекционное черчение — ядро инженерной графики. Оно превращает пространственный объект в систему плоских проекций.
+            </div>
 
-        <h3 id="p2">Метод Монжа</h3>
-        <p>Пространство делится на три взаимно перпендикулярные плоскости:</p>
-        <ul>
-            <li><strong>V</strong> — фронтальная;</li>
-            <li><strong>H</strong> — горизонтальная;</li>
-            <li><strong>W</strong> — профильная.</li>
-        </ul>
-        <p>Их пересечения — оси X, Y, Z. Точка задаётся координатами A(x, y, z).</p>
+            <nav class="page-nav">
+                <a href="geometricheskie-postroeniya.html">← Предыдущий</a>
+                <a href="aksonometriya.html">Следующий раздел →</a>
+            </nav>
+        </main>
 
-        <h3 id="p3">Проекции точки</h3>
-        <p>На комплексном чертеже получают три проекции точки:</p>
-        <ul>
-            <li>фронтальную A';</li>
-            <li>горизонтальную A;</li>
-            <li>профильную A''.</li>
-        </ul>
-        <p>Связь проекций обеспечивается линиями связи.</p>
-
-        <h3 id="p4">Виды на чертеже</h3>
-        <p>По ГОСТ 2.305 основных видов шесть: главный, сверху, слева, справа, снизу, сзади. Главный вид — самый информативный, его ставят на первое место.</p>
-
-        <div class="note">
-            <strong>Итог:</strong> прямоугольное проецирование — ядро инженерной графики. Оно превращает пространственный объект в систему плоских проекций.
-        </div>
-
-        <nav class="page-nav">
-            <a href="geometricheskie-postroeniya.html">← Предыдущий</a>
-            <a href="aksonometriya.html">Следующий раздел →</a>
-        </nav>
-    </main>
+    </div>
 
     <footer class="site-footer">
-        <p>© 2026, Иван Иванов, 10 класс. Школьный проект.</p>
+        <p>© 2026, Иванов Иван, 10 «А». Школьный проект.</p>
+        <p style="margin-top: 0.6rem; font-size: 0.85rem;">
+            <a href="about.html" style="color: #5ba3e8;">О проекте</a> ·
+            <a href="privacy.html" style="color: #5ba3e8;">Политика конфиденциальности</a>
+        </p>
     </footer>
+
+    <script>
+        (function() {
+            var bar = document.getElementById('progressBar');
+            if (!bar) return;
+            function update() {
+                var h = document.documentElement;
+                var scrollTop = window.pageYOffset || h.scrollTop;
+                var docHeight = h.scrollHeight - h.clientHeight;
+                var percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                bar.style.width = percent + '%';
+            }
+            window.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            update();
+        })();
+    </script>
+
+    <script src="progress.js"></script>
+    <script src="account.js"></script>
 
 </body>
 </html>

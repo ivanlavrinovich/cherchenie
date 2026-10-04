@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О проекте</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f2544'/%3E%3Ctext x='50' y='72' font-family='JetBrains Mono, monospace' font-size='70' font-weight='800' fill='%237bb8f0' text-anchor='middle'%3EЧ%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="section-page">
+
+    <div class="reading-progress"><div class="reading-progress-bar" id="progressBar"></div></div>
+
+    <div class="home-decor" aria-hidden="true">
+        <svg class="decor decor-1" viewBox="0 0 300 300">
+            <circle cx="150" cy="150" r="140" fill="none" stroke="#5ba3e8" stroke-width="1.5"/>
+            <circle cx="150" cy="150" r="100" fill="none" stroke="#5ba3e8" stroke-width="1"/>
+            <circle cx="150" cy="150" r="60" fill="none" stroke="#5ba3e8" stroke-width="1"/>
+            <line x1="10" y1="150" x2="290" y2="150" stroke="#5ba3e8" stroke-width="1" stroke-dasharray="8 4"/>
+            <line x1="150" y1="10" x2="150" y2="290" stroke="#5ba3e8" stroke-width="1" stroke-dasharray="8 4"/>
+        </svg>
+        <svg class="decor decor-2" viewBox="0 0 240 240">
+            <line x1="20" y1="20" x2="220" y2="20" stroke="#5ba3e8" stroke-width="1.5"/>
+            <line x1="20" y1="20" x2="20" y2="220" stroke="#5ba3e8" stroke-width="1.5"/>
+            <path d="M 70 20 A 50 50 0 0 0 20 70" fill="none" stroke="#5ba3e8" stroke-width="1.5"/>
+            <text x="55" y="55" fill="#5ba3e8" font-size="14" font-family="JetBrains Mono, monospace">90°</text>
+        </svg>
+    </div>
+
+    <header class="site-header hero-header">
+        <div class="hero-content">
+            <p class="hero-overline">Информация · Проект</p>
+            <h1>О проекте</h1>
+            <p class="hero-sub">Что это, для кого, зачем и как сделано. Коротко и по делу.</p>
+            <div class="hero-meta">
+                <span>Учебный проект</span>
+                <span class="dot">·</span>
+                <span>2026</span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs">
+        <a href="index.html">Главная</a>
+        <span class="breadcrumbs-sep">/</span>
+        <span class="breadcrumbs-current">О проекте</span>
+    </nav>
+
+    <main class="content" style="max-width: 900px; margin: 2rem auto;">
+
+        <p class="lead center">
+            <strong>«Черчение»</strong> — это электронное методическое пособие для школьников, изучающих черчение. Сайт создан как учебный проект ученика 10 «А» класса.
+        </p>
+
+        <h3 id="p1">1. Что это за сайт</h3>
+
+        <p>Это онлайн-пособие, в котором собрана вся теория по школьному курсу черчения — от простейших геометрических элементов до чтения сборочных чертежей. Материал разбит по разделам, к каждому есть наглядные иллюстрации, таблицы и алгоритмы построения.</p>
+
+        <h3 id="p2">2. Для кого</h3>
+
+        <ul>
+            <li>Для школьников, которые изучают черчение.</li>
+            <li>Для тех, кто готовится к контрольным и графическим работам.</li>
+            <li>Для тех, кому нужно быстро найти нужную тему или правило.</li>
+        </ul>
+
+        <h3 id="p3">3. Что внутри</h3>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Раздел</th>
+                        <th>Что изучается</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>01. Основные правила оформления</td><td>Форматы, линии, шрифт, размеры, масштабы</td></tr>
+                    <tr><td>02. Геометрические построения</td><td>Деление на равные части, сопряжения</td></tr>
+                    <tr><td>03. Прямоугольное проецирование</td><td>Метод Монжа, виды, проекции</td></tr>
+                    <tr><td>04. Аксонометрические проекции</td><td>Изометрия, диметрия</td></tr>
+                    <tr><td>05. Сечения</td><td>Виды сечений, обозначение, штриховка</td></tr>
+                    <tr><td>06. Разрезы</td><td>Простые и сложные разрезы</td></tr>
+                    <tr><td>07. Типовые соединения</td><td>Резьбовые, сварные, шпоночные</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>Дополнительно на сайте есть <strong>три мини-игры</strong> для самопроверки и <strong>личный кабинет</strong> со статистикой прогресса.</p>
+
+        <h3 id="p4">4. Как сделано</h3>
+
+        <p>Сайт построен на <strong>чистом HTML, CSS и JavaScript</strong> — без использования сторонних фреймворков и систем управления контентом. Это значит:</p>
+
+        <ul>
+            <li>все страницы — это отдельные файлы с разметкой;</li>
+            <li>оформление — в одном файле стилей;</li>
+            <li>логика игр, прогресса и профиля — на JavaScript;</li>
+            <li>хостинг — GitHub Pages (бесплатно, доступно по всему миру).</li>
+        </ul>
+
+        <h3 id="p5">5. Приватность</h3>
+
+        <p>Сайт <strong>не собирает персональные данные</strong>. Для профиля используется только псевдоним (ник) и пароль, причём пароль хранится в виде необратимого хеша. Прогресс, аватарка и достижения находятся <strong>только в браузере пользователя</strong> и никуда не передаются.</p>
+
+        <p>Подробнее — на странице <a href="privacy.html">Политика конфиденциальности</a>.</p>
+
+        <h3 id="p6">6. Планы развития</h3>
+
+        <ul>
+            <li>Расширение теории по всем разделам.</li>
+            <li>Добавление новых иллюстраций и схем.</li>
+            <li>Больше практических заданий и примеров.</li>
+            <li>Развитие мини-игр и системы достижений.</li>
+        </ul>
+
+        <div class="note">
+            <strong>Автор проекта:</strong> ученик 10 «А» класса. Сайт создан в 2026 году как учебный проект по информатике и черчению.
+        </div>
+
+        <p class="center-italic">
+            Спасибо, что зашли. Приятного изучения черчения!
+        </p>
+
+        <nav class="page-nav">
+            <a href="index.html">← На главную</a>
+            <a href="privacy.html">Политика конфиденциальности →</a>
+        </nav>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2026, Иванов Иван, 10 «А». Школьный проект.</p>
+        <p style="margin-top: 0.6rem; font-size: 0.85rem;">
+            <a href="about.html" style="color: #5ba3e8;">О проекте</a> ·
+            <a href="privacy.html" style="color: #5ba3e8;">Политика конфиденциальности</a>
+        </p>
+    </footer>
+
+    <script>
+        (function() {
+            var bar = document.getElementById('progressBar');
+            if (!bar) return;
+            function update() {
+                var h = document.documentElement;
+                var scrollTop = window.pageYOffset || h.scrollTop;
+                var docHeight = h.scrollHeight - h.clientHeight;
+                var percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                bar.style.width = percent + '%';
+            }
+            window.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            update();
+        })();
+    </script>
+
+    <script src="account.js"></script>
+
+</body>
+</html>
